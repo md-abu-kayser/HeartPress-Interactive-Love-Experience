@@ -1,5 +1,5 @@
-/* CSS Style  */
-
+/* CSS Style */
+/* ------------------------------------------------------------------------------- */
 :root {
   --bg: #0a0a0f;
   --fg: #ffffff;
@@ -8,11 +8,10 @@
   --shadow: rgba(255, 43, 79, 0.6);
   --textGlow: 0 0 0.6rem rgba(255, 214, 231, 0.9);
   --maxWidth: 1200px;
-  --messageBoxBg: rgba(139, 69, 119, 0.6); /* Dark translucent pink */
+  --messageBoxBg: rgba(139, 69, 119, 0.6);
   --glow: rgba(255, 43, 79, 0.8);
   --confetti-colors: #ff2b4f, #ffd6e7, #ff5f7a, #c91534;
 }
-
 * {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
@@ -27,18 +26,13 @@ body {
     Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji",
     "Segoe UI Emoji";
   color: var(--fg);
-  background: linear-gradient(
-    to bottom,
-    #000000,
-    #2a3a6b
-  ); /* Softer night gradient */
+  background: linear-gradient(to bottom, #000000, #2a3a6b);
   overflow: hidden;
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
 }
-
 .scene {
   position: relative;
   inset: 0;
@@ -50,13 +44,8 @@ body {
   overflow: hidden;
   isolation: isolate;
 }
-
 .scene[data-bg="stars"] {
-  background: linear-gradient(
-    to bottom,
-    #000000,
-    #2a3a6b
-  ); /* Softer night sky */
+  background: linear-gradient(to bottom, #000000, #2a3a6b);
 }
 .scene[data-bg="stars"]::before,
 .scene[data-bg="stars"]::after {
@@ -139,7 +128,6 @@ body {
   opacity: 0.8;
 }
 
-/* Additional star layer for depth */
 .scene[data-bg="stars"] .extra-stars {
   content: "";
   position: absolute;
@@ -179,7 +167,6 @@ body {
   animation: twinkleC 8s ease-in-out infinite;
   opacity: 0.6;
 }
-
 @keyframes twinkleA {
   0% {
     opacity: 1;
@@ -197,7 +184,6 @@ body {
     opacity: 1;
   }
 }
-
 @keyframes twinkleB {
   0% {
     opacity: 0.8;
@@ -218,7 +204,6 @@ body {
     opacity: 0.8;
   }
 }
-
 @keyframes twinkleC {
   0% {
     opacity: 0.6;
@@ -236,8 +221,7 @@ body {
     opacity: 0.6;
   }
 }
-
-/* Floating hearts background */
+/* Floating hearts bg*/
 .floating-hearts {
   position: absolute;
   top: 0;
@@ -248,7 +232,6 @@ body {
   pointer-events: none;
   z-index: -1;
 }
-
 .heart-float {
   position: absolute;
   color: var(--pink);
@@ -259,7 +242,6 @@ body {
   animation-delay: var(--delay);
   will-change: transform, opacity;
 }
-
 @keyframes floatUp {
   0% {
     transform: translateY(120vh) rotate(var(--rot, 0deg)) scale(0.8);
@@ -276,24 +258,19 @@ body {
     opacity: 0;
   }
 }
-
 .heart-container {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Mobile tweak: move heart up */
   transform: translateY(-40px);
   z-index: 5;
 }
-
-/* On taller screens, reset position */
 @media (min-height: 800px) {
   .heart-container {
     transform: translateY(0);
   }
 }
-
 .heart-btn {
   display: grid;
   place-items: center;
@@ -312,7 +289,6 @@ body {
 .heart-btn:active {
   transform: scale(0.95);
 }
-
 .heart {
   width: 85%;
   height: 85%;
@@ -326,7 +302,6 @@ body {
   display: block;
   overflow: visible;
 }
-
 .heart svg .core {
   fill: url(#g);
   filter: drop-shadow(0 0 20px var(--shadow))
@@ -335,13 +310,11 @@ body {
   animation: gentleBeat 2.5s ease-in-out infinite;
   transform-origin: 50% 50%;
 }
-
 .heart svg .shine {
   fill: rgba(255, 255, 255, 0.45);
   mix-blend-mode: screen;
   animation: shinePulse 3s ease-in-out infinite;
 }
-
 @keyframes shinePulse {
   0%,
   100% {
@@ -351,7 +324,6 @@ body {
     opacity: 0.7;
   }
 }
-
 @keyframes gentleBeat {
   0%,
   100% {
@@ -361,12 +333,10 @@ body {
     transform: scale(1.05);
   }
 }
-
 .heart-btn.clicked .heart svg .core {
   animation: strongBeat 0.7s cubic-bezier(0.17, 0.67, 0.83, 0.67),
     gentleBeat 2.5s ease-in-out infinite 0.7s;
 }
-
 @keyframes strongBeat {
   0% {
     transform: scale(1);
@@ -393,12 +363,11 @@ body {
     transform: scale(1);
   }
 }
-
 .phrase {
   position: absolute;
   display: inline-block;
   padding: 0.8em 1.4em;
-  background: var(--messageBoxBg); /* Dark translucent pink */
+  background: var(--messageBoxBg);
   border-radius: 25px;
   border: 1px solid rgba(255, 214, 231, 0.3);
   font-weight: 700;
@@ -416,12 +385,10 @@ body {
   will-change: transform, opacity, color;
   transition: color 0.5s ease;
 }
-
 .phrase.shooting {
   animation: shootAndFall var(--duration, 6s)
     cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
-
 @keyframes shootAndFall {
   0% {
     opacity: 0;
@@ -459,7 +426,6 @@ body {
       scale(0.7) rotate(var(--final-rotation, 0deg));
   }
 }
-
 .particle {
   position: absolute;
   width: 4px;
@@ -472,11 +438,9 @@ body {
   will-change: transform, opacity;
   box-shadow: 0 0 10px var(--glow);
 }
-
 .particle.burst {
   animation: particleBurst 1.2s ease-out forwards;
 }
-
 @keyframes particleBurst {
   0% {
     opacity: 1;
@@ -488,8 +452,7 @@ body {
       translate(var(--particle-x, 0px), var(--particle-y, 0px));
   }
 }
-
-/* Confetti effects */
+/* Confetti */
 .confetti {
   position: absolute;
   width: var(--size, 6px);
@@ -502,7 +465,6 @@ body {
   will-change: transform, opacity;
   animation: confettiBurst var(--duration, 1.5s) ease-out forwards;
 }
-
 @keyframes confettiBurst {
   0% {
     opacity: 1;
@@ -514,39 +476,36 @@ body {
       rotate(var(--rot, 0deg));
   }
 }
-
 /* Music player */
 .music-player {
   position: fixed;
-  top: 20px; /* At the top */
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
   background: var(--messageBoxBg);
-  padding: 10px 18px; /* Reduced vertical padding */
+  padding: 10px 18px;
   border-radius: 20px;
   border: 1px solid rgba(255, 214, 231, 0.3);
   box-shadow: 0 8px 32px rgba(255, 43, 79, 0.2);
   display: flex;
   align-items: center;
-  gap: 12px; /* Reduced gap */
+  gap: 12px;
   z-index: 100;
   backdrop-filter: blur(10px);
-  min-width: 260px; /* Reduced min width */
+  min-width: 260px;
   opacity: 0;
-  transform: translateX(-50%) translateY(-100%); /* Slide-in from top */
+  transform: translateX(-50%) translateY(-100%);
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-
 .music-player.active {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
-
 .play-pause-btn {
   background: rgba(255, 43, 79, 0.8);
   border: none;
   border-radius: 50%;
-  width: 36px; /* Slightly smaller */
+  width: 36px;
   height: 36px;
   display: flex;
   align-items: center;
@@ -557,41 +516,35 @@ body {
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(255, 43, 79, 0.3);
 }
-
 .play-pause-btn:hover {
   background: rgba(255, 43, 79, 1);
   transform: scale(1.05);
 }
-
 .play-pause-btn svg {
   width: 16px;
   height: 16px;
   fill: currentColor;
 }
-
 .progress-container {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 6px; /* Reduced gap */
+  gap: 6px;
 }
-
 .song-info {
-  font-size: 13px; /* Slightly smaller */
+  font-size: 13px;
   color: var(--pink);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
   font-weight: 500;
 }
-
 .progress-bar {
   width: 100%;
-  height: 3px; /* Slightly smaller */
+  height: 3px;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 2px;
   overflow: hidden;
   cursor: pointer;
 }
-
 .progress-fill {
   height: 100%;
   background: linear-gradient(90deg, #ff2b4f, #ff5f7a);
@@ -599,16 +552,15 @@ body {
   width: 0%;
   transition: width 0.1s ease;
 }
-
 .time-display {
   display: flex;
   justify-content: space-between;
-  font-size: 11px; /* Slightly smaller */
+  font-size: 11px;
   color: rgba(255, 214, 231, 0.8);
   font-weight: 400;
 }
-
-/* Press counter */
+/* Press Counter */
+/* ---------------------------------- */
 .counter {
   position: fixed;
   bottom: 20px;
@@ -625,52 +577,44 @@ body {
   z-index: 100;
   opacity: 0.9;
 }
-
-/* Media queries for better responsiveness */
+/* Media Responsive */
 @media (max-width: 600px) {
   .phrase {
     font-size: clamp(12px, 3.5vw, 20px);
     padding: 0.6em 1.2em;
   }
-
   .music-player {
     width: 90%;
     min-width: unset;
     padding: 8px 12px;
     gap: 8px;
   }
-
   .song-info {
     font-size: 12px;
   }
-
   .time-display {
     font-size: 10px;
   }
-
   .play-pause-btn {
     width: 32px;
     height: 32px;
     font-size: 14px;
   }
-
   .counter {
     font-size: 12px;
     padding: 6px 12px;
   }
-
   .heart-container {
-    transform: translateY(-20px); /* Adjust for smaller screens */
+    transform: translateY(-20px);
   }
 }
-
 @media (max-width: 400px) {
   .heart-btn {
     width: clamp(200px, 80vw, 280px);
     height: clamp(200px, 80vw, 280px);
   }
-
   .phrase {
     font-size: clamp(10px, 4vw, 16px);
   }
 }
+/* -------------------------------END------------------------------- */
